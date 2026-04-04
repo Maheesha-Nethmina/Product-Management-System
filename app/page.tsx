@@ -57,7 +57,7 @@ export default function Home() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors">Product Management</h1>
-          <p className="text-slate-600 dark:text-slate-400 mt-1 transition-colors">Manage your inventory and pricing.</p>
+          <p className="text-slate-600 dark:text-slate-400 mt-1 transition-colors">Efficiently managing your inventory with a modern touch.</p>
         </div>
         {/* UPDATED: Add New Product Button Colors */}
         <button
