@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
+/* 🚨 THE FIX: Force Tailwind to use your toggle button instead of System OS */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
 :root {
-  --background: #f8fafc;
-  /* Light Mode: Soft White */
-  --foreground: #0f172a;
+  /* Light Mode */
+  --background: #f1f5f9; /* Soft light gray body */
+  --foreground: #0f172a; /* Dark text */
 }
 
 .dark {
-  --background: #0f172a;
-  /* Dark Mode: Deep Navy (Visible Change) */
-  --foreground: #f8fafc;
+  /* Dark Mode */
+  --background: #020617; /* Deep navy body */
+  --foreground: #f8fafc; /* White text */
 }
 
 @layer base {
   body {
-    /* Use !important to override any hidden utility classes */
-    background-color: var(--background) !important;
-    color: var(--foreground) !important;
-    @apply transition-colors duration-300 antialiased;
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply transition-colors duration-300 antialiased min-h-screen;
   }
 }
