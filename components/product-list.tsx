@@ -2,43 +2,53 @@ import { Product } from "@/app/page";
 
 export default function ProductList({ products, onEdit, onDelete }: any) {
     if (products.length === 0) return (
-        <div className="text-center py-20 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-400 font-medium w-full">
-            No products found matching your search.
+        <div className="text-center py-20 text-slate-400 font-medium bg-white dark:bg-slate-900 rounded-[32px] border border-slate-100 dark:border-slate-800 transition-colors">
+            No products found in the inventory.
         </div>
     );
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {products.map((p: Product) => (
-                <div key={p.id} className="group bg-white dark:bg-[#0b1120] rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <div className="h-52 bg-slate-50 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
-                        {p.img ? (
-                            <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        ) : (
-                            <div className="flex flex-col items-center gap-2">
-                                <span className="text-slate-400 text-[10px] font-bold tracking-widest uppercase">No Preview</span>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="p-6 text-left">
-                        <h3 className="font-bold text-lg text-slate-900 dark:text-white truncate">{p.name}</h3>
-                        <p className="text-indigo-600 dark:text-indigo-400 font-black text-xl mt-1">${p.price.toFixed(2)}</p>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm mt-3 line-clamp-2 h-10 leading-relaxed">
-                            {p.desc || "No description provided."}
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-3 mt-6">
-                            <button onClick={() => onEdit(p)} className="py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-bold transition-colors">
-                                Edit
-                            </button>
-                            <button onClick={() => onDelete(p.id)} className="py-2.5 rounded-xl border border-red-100 text-red-500 hover:bg-red-50 dark:hover:bg-red-950 text-sm font-bold transition-colors">
-                                Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            ))}
+        <div className="w-full overflow-hidden bg-white dark:bg-slate-900 rounded-[32px] border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
+            <table className="w-full text-left border-collapse">
+                <thead>
+                    <tr className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
+                        <th className="px-8 py-5 text-[10px] font-bold tracking-widest uppercase text-slate-400">Item Details</th>
+                        <th className="px-8 py-5 text-[10px] font-bold tracking-widest uppercase text-slate-400">Price</th>
+                        <th className="px-8 py-5 text-[10px] font-bold tracking-widest uppercase text-slate-400 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-800/50">
+                    {products.map((p: Product) => (
+                        <tr key={p.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                            <td className="px-8 py-6">
+                                <div className="font-bold text-slate-800 dark:text-white text-lg">{p.name}</div>
+                                <div className="text-sm text-slate-500 dark:text-slate-400 line-clamp-1 max-w-md mt-1">{p.desc}</div>
+                            </td>
+                            <td className="px-8 py-6">
+                                <span className="text-indigo-600 dark:text-indigo-400 font-black text-xl">
+                                    ${Number(p.price).toFixed(2)}
+                                </span>
+                            </td>
+                            <td className="px-8 py-6 text-right">
+                                <div className="flex justify-end gap-2">
+                                    <button
+                                        onClick={() => onEdit(p)}
+                                        className="px-4 py-2 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-600 hover:text-white transition-all active:scale-95 text-xs font-bold"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        onClick={() => onDelete(p.id)}
+                                        className="px-4 py-2 rounded-xl bg-red-50 dark:bg-red-900/30 text-red-500 dark:text-red-300 hover:bg-red-500 hover:text-white transition-all active:scale-95 text-xs font-bold"
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 }

@@ -5,15 +5,16 @@ import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Produit — Product Manager',
-  description: 'Simple product management app',
+  description: 'Modern product management app',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 dark:bg-gray-950 transition-colors selection:bg-indigo-100 selection:text-indigo-700">
+      {/* Remove bg-gray-50 from the body class below */}
+      <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

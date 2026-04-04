@@ -45,7 +45,7 @@ export default function Footer(): JSX.Element {
                 {/* Bottom Section: Copyright */}
                 <div className="pt-6 border-t border-gray-50 dark:border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-[11px] text-gray-400 dark:text-gray-600">
-                        © {currentYear} Produit. Assessment Project. [cite: 1]
+                        © {currentYear} Produit. Assessment Project.
                     </p>
                     <div className="flex gap-4">
                         <a href="#" className="text-[11px] text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition">Privacy</a>
