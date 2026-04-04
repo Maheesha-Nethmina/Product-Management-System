@@ -2,7 +2,7 @@ import { Product } from "@/app/page";
 
 export default function ProductList({ products, onEdit, onDelete }: any) {
     if (products.length === 0) return (
-        <div className="text-center py-20 text-slate-400 font-medium bg-white dark:bg-slate-900 rounded-[32px] border border-slate-100 dark:border-slate-800 transition-colors">
+        <div className="text-center py-20 text-slate-400 font-medium  dark:bg-white rounded-[32px] border border-slate-100 dark:border-slate-800 transition-colors">
             No products found in the inventory.
         </div>
     );

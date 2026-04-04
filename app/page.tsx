@@ -40,11 +40,11 @@ export default function Home() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 min-h-screen">
-      
+
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10 pt-10">
         <div className="w-full md:w-auto text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-blue-600 dark:text-bg-indigo-700 transition-colors duration-300">
             Inventory
           </h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium text-lg transition-colors duration-300">
@@ -65,7 +65,7 @@ export default function Home() {
         <input
           type="text"
           placeholder="Search inventory..."
-          className="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-500/10 outline-none transition-all placeholder:text-slate-400 shadow-sm"
+          className="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-800  dark:bg-white text-slate-900 dark:text-white focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-500/10 outline-none transition-all placeholder:text-slate-400 shadow-sm"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
