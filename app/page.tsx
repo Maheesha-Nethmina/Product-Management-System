@@ -1,8 +1,10 @@
-'use client';
+'use client';// Required in Next.js App Router to enable client-side features like useState and useEffect
+
 import { useState, useEffect } from 'react';
 import ProductList from '@/components/product-list';
 import ProductForm from '@/components/product-form';
 
+// Define the Product object
 export interface Product {
   id: number;
   name: string;
@@ -18,36 +20,44 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [editProduct, setEditProduct] = useState<Product | null>(null);
 
+ 
+  //Load data from localStorage when the component first mounts
   useEffect(() => {
     const saved = localStorage.getItem('furniq-data');
     if (saved) setProducts(JSON.parse(saved));
   }, []);
-
+//Save data to localStorage whenever the 'products' array changes
   useEffect(() => {
     localStorage.setItem('furniq-data', JSON.stringify(products));
   }, [products]);
-
+// Create a derived array of products based on search text AND price filters
   const filtered = products.filter(p => {
+    // Check if the product name or description includes the search text (case-insensitive)
     const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) || 
                           p.desc.toLowerCase().includes(search.toLowerCase());
-    
+    // Check if the product falls within the selected price bracket
     let matchesPrice = true;
     if (priceFilter === 'under50') matchesPrice = p.price < 50;
     else if (priceFilter === '50to200') matchesPrice = p.price >= 50 && p.price <= 200;
     else if (priceFilter === 'over200') matchesPrice = p.price > 200;
-
+// A product must match BOTH criteria to be displayed
     return matchesSearch && matchesPrice;
   });
 
+  // Use reduce to sum up the price of all products in the inventory
   const totalValue = products.reduce((sum, p) => sum + Number(p.price), 0);
   const avgPrice = products.length > 0 ? totalValue / products.length : 0;
 
+// Handle form submission for both Creating and Updating products
   const handleSave = (data: any) => {
+    //update existing product
     if (editProduct) {
       setProducts(prev => prev.map(p => p.id === editProduct.id ? { ...p, ...data } : p));
     } else {
+      // create new product
       setProducts(prev => [{ ...data, id: Date.now() }, ...prev]);
     }
+    // Close the modal after saving
     setShowModal(false);
   };
 
