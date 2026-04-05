@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* 🚨 THE FIX: Force Tailwind to use your toggle button instead of System OS */
 @variant dark (&:where(.dark, .dark *));
 
 @theme {

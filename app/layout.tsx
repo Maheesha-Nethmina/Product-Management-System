@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      {/* Remove bg-gray-50 from the body class below */}
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-grow">{children}</main>

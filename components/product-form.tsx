@@ -75,7 +75,7 @@ export default function ProductForm({ onClose, onSubmit, initialData }: ProductF
                     
                     <div className="flex gap-4 pt-4">
                         <button onClick={onClose} className="flex-1 py-3 font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-300 transition-colors">Cancel</button>
-                        {/* UPDATED: Matched Button Colors and Changed Text */}
+                        {/* Matched Button Colors and Changed Text */}
                         <button
                             onClick={handleSubmit}
                             className="flex-1 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200 py-3 rounded-xl font-bold shadow-lg active:scale-95 transition-all"

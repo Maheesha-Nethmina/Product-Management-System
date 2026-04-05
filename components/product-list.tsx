@@ -43,14 +43,14 @@ export default function ProductList({ products, onEdit, onDelete }: any) {
               <td className="px-8 py-4 text-slate-600 dark:text-slate-400 text-sm max-w-xs truncate transition-colors">{p.desc}</td>
               <td className="px-8 py-4 text-right whitespace-nowrap">
                 <div className="flex justify-end gap-3">
-                  {/* Styled Edit Button */}
+                  {/*  Edit Button */}
                   <button 
                     onClick={() => onEdit(p)} 
                     className="px-4 py-2 rounded-lg bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-500/20 dark:text-indigo-400 dark:hover:bg-indigo-500/30 font-bold text-xs transition-colors shadow-sm active:scale-95"
                   >
                     Edit
                   </button>
-                  {/* Styled Delete Button with Confirmation Dialog */}
+                  {/*  Delete Button with Confirmation Dialog */}
                   <button 
                     onClick={() => {
                       if (window.confirm(`Are you sure you want to delete "${p.name}"?`)) {
